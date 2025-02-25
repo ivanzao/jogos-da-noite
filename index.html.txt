@@ -1,0 +1,102 @@
+!DOCTYPE html
+html lang=pt-br
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleJogos da Noitetitle
+    style
+        body {
+            font-family Arial, sans-serif;
+            background-color #121212;
+            color #fff;
+            margin 0;
+            padding 0;
+            display flex;
+            flex-direction column;
+            align-items center;
+        }
+        header {
+            background-color #1f1f1f;
+            padding 20px;
+            font-size 24px;
+            font-weight bold;
+            width 100%;
+            text-align center;
+        }
+        main {
+            margin-top 50px;
+            width 80%;
+            max-width 600px;
+        }
+        ul {
+            list-style none;
+            padding 0;
+            text-align left;
+        }
+        li {
+            display flex;
+            align-items center;
+            background-color #1f1f1f;
+            padding 10px;
+            border-radius 5px;
+            margin-bottom 10px;
+            transition background-color 0.3s;
+        }
+        lihover {
+            background-color #333;
+        }
+        input[type=checkbox] {
+            margin-right 10px;
+        }
+        a {
+            color #1e90ff;
+            text-decoration none;
+        }
+        ahover {
+            text-decoration underline;
+        }
+    style
+    script
+        function resetChecklist() {
+            const now = new Date();
+            const resetHour = 3;  0000 GMT-3
+            const resetTime = new Date();
+            resetTime.setUTCHours(resetHour + 3, 0, 0, 0);
+            if (now = resetTime) {
+                localStorage.setItem('checklistDate', now.toDateString());
+                localStorage.removeItem('checkedItems');
+            }
+        }
+
+        function loadChecklist() {
+            resetChecklist();
+            const checkedItems = JSON.parse(localStorage.getItem('checkedItems'))  {};
+            document.querySelectorAll('input[type=checkbox]').forEach(checkbox = {
+                checkbox.checked = checkedItems[checkbox.id]  false;
+                checkbox.addEventListener('change', () = {
+                    checkedItems[checkbox.id] = checkbox.checked;
+                    localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+                });
+            });
+        }
+    script
+head
+body onload=loadChecklist()
+    header
+        Jogos da Noite
+    header
+    main
+        ul
+            liinput type=checkbox id=terma href=httpsterm.ooo target=_blank Termoali
+            liinput type=checkbox id=wordlea href=httpswww.nytimes.comgameswordleindex.html target=_blank Wordleali
+            liinput type=checkbox id=frameda href=httpsframed.wtf target=_blank Framedali
+            liinput type=checkbox id=guess-the-gamea href=httpsguessthe.game target=_blank Guess The Gameali
+            liinput type=checkbox id=moviedle-1a href=httpslikewise.comgamesmoviedle target=_blank Moviedle 1ali
+            liinput type=checkbox id=moviedle-2a href=httpsmoviedle.xyz target=_blank Moviedle 2ali
+            liinput type=checkbox id=episodea href=httpsepisode.wtf target=_blank Episode.wtfali
+            liinput type=checkbox id=conexoa href=httpsconexo.wspt target=_blank Conexoali
+            liinput type=checkbox id=spotlea href=httpsspotle.io target=_blank Spotleali
+        ul
+    main
+body
+html
