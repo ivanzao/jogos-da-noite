@@ -94,9 +94,16 @@
         }
 
         function openLink(url, event) {
-            // Previne a ação de abrir o site ao clicar no checkbox
+            event.preventDefault();
             if (event.target.type !== 'checkbox') {
-                window.open(url, '_blank');
+                const checkbox = document.getElementById(checkboxId);
+                if (checkbox) {
+                    checkbox.checked = true;
+                    const checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || {};
+                    checkedItems[checkboxId] = true;
+                    localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+                }
+                window.open(event.target.href, '_blank');
             }
         }
     </script>
