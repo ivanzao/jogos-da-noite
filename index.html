@@ -60,6 +60,11 @@
             height: 20px;
             margin-right: 10px;
         }
+        label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
     </style>
     <script>
         function resetChecklist() {
@@ -92,15 +97,15 @@
     </header>
     <main>
         <ul>
-            <li><input type="checkbox" id="term"><img class="favicon" src="https://term.ooo/favicon.ico" alt="Termo"> <a href="https://term.ooo/" target="_blank">Termo</a></li>
-            <li><input type="checkbox" id="wordle"><img class="favicon" src="https://www.nytimes.com/favicon.ico" alt="Wordle"> <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a></li>
-            <li><input type="checkbox" id="framed"><img class="favicon" src="https://framed.wtf/favicon.ico" alt="Framed"> <a href="https://framed.wtf/" target="_blank">Framed</a></li>
-            <li><input type="checkbox" id="guess-the-game"><img class="favicon" src="https://guessthe.game/favicon.ico" alt="Guess The Game"> <a href="https://guessthe.game/" target="_blank">Guess The Game</a></li>
-            <li><input type="checkbox" id="moviedle-1"><img class="favicon" src="https://likewise.com/favicon.ico" alt="Moviedle 1"> <a href="https://likewise.com/games/moviedle" target="_blank">Moviedle 1</a></li>
-            <li><input type="checkbox" id="moviedle-2"><img class="favicon" src="https://moviedle.xyz/favicon.ico" alt="Moviedle 2"> <a href="https://moviedle.xyz/" target="_blank">Moviedle 2</a></li>
-            <li><input type="checkbox" id="episode"><img class="favicon" src="https://episode.wtf/favicon.ico" alt="Episode.wtf"> <a href="https://episode.wtf/" target="_blank">Episode.wtf</a></li>
-            <li><input type="checkbox" id="conexo"><img class="favicon" src="https://conexo.ws/favicon.ico" alt="Conexo"> <a href="https://conexo.ws/pt/" target="_blank">Conexo</a></li>
-            <li><input type="checkbox" id="spotle"><img class="favicon" src="https://spotle.io/favicon.ico" alt="Spotle"> <a href="https://spotle.io/" target="_blank">Spotle</a></li>
+            <li><label for="term"><input type="checkbox" id="term"><img class="favicon" src="https://term.ooo/favicon.ico" alt="Termo"> <a href="https://term.ooo/" target="_blank">Termo</a></label></li>
+            <li><label for="wordle"><input type="checkbox" id="wordle"><img class="favicon" src="https://www.nytimes.com/favicon.ico" alt="Wordle"> <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a></label></li>
+            <li><label for="framed"><input type="checkbox" id="framed"><img class="favicon" src="https://framed.wtf/favicon.ico" alt="Framed"> <a href="https://framed.wtf/" target="_blank">Framed</a></label></li>
+            <li><label for="guess-the-game"><input type="checkbox" id="guess-the-game"><img class="favicon" src="https://guessthe.game/favicon.ico" alt="Guess The Game"> <a href="https://guessthe.game/" target="_blank">Guess The Game</a></label></li>
+            <li><label for="moviedle-1"><input type="checkbox" id="moviedle-1"><img class="favicon" src="https://likewise.com/favicon.ico" alt="Moviedle 1"> <a href="https://likewise.com/games/moviedle" target="_blank">Moviedle 1</a></label></li>
+            <li><label for="moviedle-2"><input type="checkbox" id="moviedle-2"><img class="favicon" src="https://moviedle.xyz/favicon.ico" alt="Moviedle 2"> <a href="https://moviedle.xyz/" target="_blank">Moviedle 2</a></label></li>
+            <li><label for="episode"><input type="checkbox" id="episode"><img class="favicon" src="https://episode.wtf/favicon.ico" alt="Episode.wtf"> <a href="https://episode.wtf/" target="_blank">Episode.wtf</a></label></li>
+            <li><label for="conexo"><input type="checkbox" id="conexo"><img class="favicon" src="https://conexo.ws/favicon.ico" alt="Conexo"> <a href="https://conexo.ws/pt/" target="_blank">Conexo</a></label></li>
+            <li><label for="spotle"><input type="checkbox" id="spotle"><img class="favicon" src="https://spotle.io/favicon.ico" alt="Spotle"> <a href="https://spotle.io/" target="_blank">Spotle</a></label></li>
         </ul>
     </main>
 </body>
