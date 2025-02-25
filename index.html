@@ -71,11 +71,12 @@
     <script>
         function resetChecklist() {
             const now = new Date();
-            const resetHour = 3; // 00:00 GMT-3
-            const resetTime = new Date();
-            resetTime.setUTCHours(resetHour + 3, 0, 0, 0);
-            if (now >= resetTime) {
-                localStorage.setItem('checklistDate', now.toDateString());
+            now.setHours(now.getHours() - 3); // Ajusta para GMT-3
+            const today = now.toDateString();
+            const lastReset = localStorage.getItem('checklistDate');
+            
+            if (lastReset !== today) {
+                localStorage.setItem('checklistDate', today);
                 localStorage.removeItem('checkedItems');
             }
         }
