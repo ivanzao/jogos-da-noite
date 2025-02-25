@@ -86,22 +86,33 @@
             const checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || {};
             document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
                 checkbox.checked = checkedItems[checkbox.id] || false;
-                checkbox.addEventListener('change', () => {
-                    checkedItems[checkbox.id] = checkbox.checked;
-                    localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
-                });
+               
             });
         }
 
-        function openLink(url, event) {
-            if (event.target.type !== 'checkbox') {
-                const checkbox = document.getElementById(checkboxId);
-                if (checkbox) {
-                    checkbox.checked = true;
-                    const checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || {};
-                    checkedItems[checkboxId] = true;
-                    localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
-                }
+        function openLink(url, checkboxId, event) {
+            if (event.target.type !== "checkbox") {
+                event.preventDefault();
+            }
+            
+            const checkbox = document.getElementById(checkboxId);
+
+            if (event.target.type === "checkbox") {
+                const checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || {};
+                checkedItems[checkbox.id] = checkbox.checked;
+                localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+                return;
+            }
+        
+            // Se clicar no link ou label, marcar o checkbox (se estiver desmarcado) e abrir o link
+            if (checkbox && !checkbox.checked) {
+                checkbox.checked = true;
+                const checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || {};
+                checkedItems[checkboxId] = true;
+                localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+            }
+
+            if (event.target.type !== "checkbox") {
                 window.open(url, '_blank');
             }
         }
@@ -114,63 +125,63 @@
     <main>
         <ul>
             <li>
-                <label for="term" onclick="openLink('https://term.ooo/', event)">
+                <label for="term" onclick="openLink('https://term.ooo/', 'term', event)">
                     <input type="checkbox" id="term">
                     <img class="favicon" src="https://term.ooo/icon.png" alt="Termo">
                     <a href="https://term.ooo/" target="_blank">Termo</a>
                 </label>
             </li>
             <li>
-                <label for="wordle" onclick="openLink('https://www.nytimes.com/games/wordle/index.html', event)">
+                <label for="wordle" onclick="openLink('https://www.nytimes.com/games/wordle/index.html', 'wordle', event)">
                     <input type="checkbox" id="wordle">
                     <img class="favicon" src="https://www.nytimes.com/favicon.ico" alt="Wordle">
                     <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a>
                 </label>
             </li>
             <li>
-                <label for="framed" onclick="openLink('https://framed.wtf/', event)">
+                <label for="framed" onclick="openLink('https://framed.wtf/', 'framed', event)">
                     <input type="checkbox" id="framed">
                     <img class="favicon" src="https://framed.wtf/favicon.ico" alt="Framed">
                     <a href="https://framed.wtf/" target="_blank">Framed</a>
                 </label>
             </li>
             <li>
-                <label for="guess-the-game" onclick="openLink('https://guessthe.game/', event)">
+                <label for="guess-the-game" onclick="openLink('https://guessthe.game/', 'guess-the-game', event)">
                     <input type="checkbox" id="guess-the-game">
                     <img class="favicon" src="https://guessthe.game/gtglogo192.png" alt="Guess The Game">
                     <a href="https://guessthe.game/" target="_blank">Guess The Game</a>
                 </label>
             </li>
             <li>
-                <label for="moviedle-1" onclick="openLink('https://likewise.com/games/moviedle', event)">
+                <label for="moviedle-1" onclick="openLink('https://likewise.com/games/moviedle', 'moviedle-1', event)">
                     <input type="checkbox" id="moviedle-1">
                     <img class="favicon" src="https://likewise.com/favicon.ico" alt="Moviedle 1">
                     <a href="https://likewise.com/games/moviedle" target="_blank">Moviedle 1</a>
                 </label>
             </li>
             <li>
-                <label for="moviedle-2" onclick="openLink('https://moviedle.xyz/', event)">
+                <label for="moviedle-2" onclick="openLink('https://moviedle.xyz/', 'moviedle-2', event)">
                     <input type="checkbox" id="moviedle-2">
                     <img class="favicon" src="https://moviedle.xyz/favicon.ico" alt="Moviedle 2">
                     <a href="https://moviedle.xyz/" target="_blank">Moviedle 2</a>
                 </label>
             </li>
             <li>
-                <label for="episode" onclick="openLink('https://episode.wtf/', event)">
+                <label for="episode" onclick="openLink('https://episode.wtf/', 'episode', event)">
                     <input type="checkbox" id="episode">
                     <img class="favicon" src="https://episode.wtf/favicon.ico" alt="Episode.wtf">
                     <a href="https://episode.wtf/" target="_blank">Episode.wtf</a>
                 </label>
             </li>
             <li>
-                <label for="conexo" onclick="openLink('https://conexo.ws/pt/', event)">
+                <label for="conexo" onclick="openLink('https://conexo.ws/pt/', 'conexo', event)">
                     <input type="checkbox" id="conexo">
                     <img class="favicon" src="https://conexo.ws/favicon.ico" alt="Conexo">
                     <a href="https://conexo.ws/pt/" target="_blank">Conexo</a>
                 </label>
             </li>
             <li>
-                <label for="spotle" onclick="openLink('https://spotle.io/', event)">
+                <label for="spotle" onclick="openLink('https://spotle.io/', 'spotle', event)">
                     <input type="checkbox" id="spotle">
                     <img class="favicon" src="https://spotle.io/favicon.png" alt="Spotle">
                     <a href="https://spotle.io/" target="_blank">Spotle</a>
