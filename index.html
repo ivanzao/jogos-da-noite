@@ -71,7 +71,6 @@
     <script>
         function resetChecklist() {
             const now = new Date();
-            now.setHours(now.getHours() - 3); // Ajusta para GMT-3
             const today = now.toDateString();
             const lastReset = localStorage.getItem('checklistDate');
             
